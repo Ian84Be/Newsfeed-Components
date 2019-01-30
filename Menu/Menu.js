@@ -1,7 +1,10 @@
 
 const toggleMenu = () => {
   // Toggle the "menu--open" class on your menu refence.
-  menu.classList.toggle('menu--open')
+  console.log('ANIANIANAINAI')
+  menu.classList.toggle('menu--open');
+  return (menu.classList.contains('menu--open')) ? TweenLite.to(menu, 1, {x:-350}) : TweenLite.to(menu, 1, {x:350}) 
+  // TweenLite.to(menu, 1, {x:350});
 }
 
 // Start Here: Create a reference to the ".menu" class
@@ -13,3 +16,4 @@ const menuButton = document.querySelectorAll('.menu-button');
 menuButton.forEach(el => {
   el.addEventListener('click', toggleMenu);
 });
+
