@@ -1,10 +1,10 @@
 function toggleMenu() {
   menu.classList.toggle('menu--open');
   if (menu.classList.contains('menu--open')) {
-    TweenLite.to(menu, 1, {x:350});
+    TweenLite.to(menu, 1, {x:350, ease:Power4.easeOut});
     console.log('opening');
   } else {
-    TweenLite.to(menu, 1, {x:-350});
+    TweenLite.to(menu, 1, {x:-350, ease:Power4.easeOut});
     console.log('closing');
   }
 }
@@ -14,7 +14,6 @@ const menuButton = document.querySelectorAll('.menu-button');
 
 menuButton.forEach(el => {
   el.addEventListener('click', ev => {
-    console.log('menubutton');
     ev.stopPropagation();
     toggleMenu();
   } );
