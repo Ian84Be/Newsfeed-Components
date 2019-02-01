@@ -1,10 +1,24 @@
-
-const toggleMenu = () => {
-  // Toggle the "menu--open" class on your menu refence. 
+function toggleMenu() {
+  menu.classList.toggle('menu--open');
+  if (menu.classList.contains('menu--open')) {
+    TweenLite.to(menu, 1, {x:350, ease:Power4.easeOut});
+    console.log('opening');
+  } else {
+    TweenLite.to(menu, 1, {x:-350, ease:Power4.easeOut});
+    console.log('closing');
+  }
 }
 
-// Start Here: Create a reference to the ".menu" class
-const menu;
-// create a reference to the ".menu-button" class
-const menuButton;
-// Using your menuButton reference, add a click handler that calls toggleMenu
+const menu = document.querySelector('.menu');
+const menuButton = document.querySelectorAll('.menu-button');
+
+menuButton.forEach(el => {
+  el.addEventListener('click', ev => {
+    ev.stopPropagation();
+    toggleMenu();
+  } );
+});
+
+window.addEventListener('click', ev => {
+  if (menu.classList.contains('menu--open')) toggleMenu();
+});
