@@ -1,9 +1,10 @@
 class Article {
-  constructor(domElement) {
+  constructor(domElement, index) {
     this.domElement = domElement;
     this.expandButton = domElement.querySelector('.expandButton');
     this.expandButton.textContent = 'click to expand';
     this.expandButton.addEventListener('click', () => this.expandArticle());
+    console.log(index);
   }
 
   expandArticle() {
@@ -21,4 +22,4 @@ class Article {
 }
 
 let articles = document.querySelectorAll('.article');
-articles.forEach(domElement => new Article(domElement));
+articles.forEach((domElement, index) => new Article(domElement, index));
